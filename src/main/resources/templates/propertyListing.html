@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eee0d3; /* Warm beige background */
+            padding: 50px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ff6f61; /* Coral color for header */
+        }
+
+        .property-listing {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .property-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Ensures vertical alignment */
+            justify-content: space-between; /* Ensures space between elements */
+        }
+
+        .property-item h3 {
+            margin: 10px 0;
+            color: #ff6f61; /* Coral color for property name */
+        }
+
+        .property-item p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .property-item a {
+            padding: 10px 20px;
+            background-color: #ff6f61; /* Coral color for button */
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            display: block; /* Makes the button take up the full width of its container */
+            width: 80%; /* Ensures button is within the property-item */
+            font-size: 16px;
+            margin-top: 10px;
+
+            transition: background 0.3s ease;
+        }
+
+        .property-item a:hover {
+            background-color: #e65b53; /* Darker coral shade for hover */
+        }
+
+    </style>
+</head>
+<body>
+<h1>Available Properties for Sale</h1>
+
+<div class="property-listing" th:each="property : ${properties}">
+    <div class="property-item">
+        <h3 th:text="${property.propertyName}">Property Name</h3>
+        <p th:text="'Description: ' + ${property.propertyDescription}"></p>
+        <p th:text="'Price: $' + ${property.price}"></p>
+        <p th:text="'Location: ' + ${property.location}"></p>
+        <p th:text="'Owner: ' + ${property.ownerName}"></p> <!-- Display the owner's name -->
+
+        <!-- Button to show owner details -->
+        <a th:href="@{/owner-details/{id}(id=${property.id})}" class="button">Contact Owner</a>
+    </div>
+</div>
+
+</body>
+</html>

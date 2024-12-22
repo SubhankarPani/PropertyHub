@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eee0d3; /* Warm beige background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .property-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .property-form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff6f61; /* Coral color for header */
+        }
+
+        .property-form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .property-form input, .property-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .property-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff6f61; /* Coral color for button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .property-form button:hover {
+            background-color: #e65b53; /* Darker coral shade for hover */
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<form class="property-form" action="/submit-property" method="post">
+    <h1>Enter Property Details</h1>
+
+    <label for="propertyName">Property Name</label>
+    <input type="text" id="propertyName" name="propertyName" placeholder="Enter property name" required>
+
+    <label for="propertyDescription">Property Description</label>
+    <input type="text" id="propertyDescription" name="propertyDescription" placeholder="Enter property description" required>
+
+    <label for="price">Price</label>
+    <input type="number" id="price" name="price" placeholder="Enter price" required>
+
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" placeholder="Enter location" required>
+
+    <label for="ownerName">Owner Name:</label>
+    <input type="text" id="ownerName" name="ownerName" required>
+
+    <label for="ownerEmail">Owner Email:</label>
+    <input type="email" id="ownerEmail" name="ownerEmail" required>
+
+    <label for="ownerPhone">Owner Phone:</label>
+    <input type="text" id="ownerPhone" name="ownerPhone" required>
+
+    <button type="submit">Submit Property</button>
+</form>
+</body>
+</html>
